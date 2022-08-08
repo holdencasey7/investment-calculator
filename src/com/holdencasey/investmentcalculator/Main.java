@@ -17,6 +17,13 @@ public class Main {
 
         System.out.println(testMoneyStory.makeContributionArray());
         System.out.println(testMoneyStory.makeReturnArray());
+
+        Year[] testYearArray = testMoneyStory.makeYearArray();
+
+        for (Year year : testYearArray) {
+            System.out.println(year);
+        }
+
     }
 
 }

@@ -3,7 +3,7 @@ package com.holdencasey.investmentcalculator;
 /**
  * Represents a single year of changes to money value.
  */
-public class Year {
+class Year {
     private final static float DEFAULT_STARTING_VALUE = 0f; //Default starting value if none provided
 
     float startValue; //Value at start of year
@@ -44,5 +44,13 @@ public class Year {
      */
     Year(Year priorYear, float newContribution, float newReturnRate) {
         this(priorYear.endValue, newContribution, newReturnRate);
+    }
+
+    @Override
+    public String toString() {
+        return "Start Value: $" + this.startValue +
+                " | End Value: $" + this.endValue +
+                " | Contribution: $" + this.contribution +
+                " | Return: " + this.returnRate + "%";
     }
 }
