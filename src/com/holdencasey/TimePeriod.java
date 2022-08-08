@@ -2,6 +2,10 @@ package com.holdencasey;
 
 import java.util.Arrays;
 
+/**
+ * Basic time period data holding class.
+ * Can hold an array of different lengths of time.
+ */
 class TimePeriod {
     protected int numPeriods; //the number of unique time periods
     protected int[] periodLengths; //an array of period lengths, in years
@@ -49,7 +53,4 @@ class TimePeriod {
         this.periodLengths = timePeriod.periodLengths;
         this.totalPeriod = timePeriod.totalPeriod;
     }
-
-    //Default constructor for now to avoid errors
-    TimePeriod() {}
 }

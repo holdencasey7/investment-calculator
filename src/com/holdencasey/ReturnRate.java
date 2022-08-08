@@ -1,5 +1,8 @@
 package com.holdencasey;
 
+/**
+ * A special TimePeriod that includes a return rate for each subdivision of time.
+ */
 class ReturnRate extends TimePeriod {
     private float[] ratesOfReturn; //an array of rates of return in % format (ex: 11.1 being 11.1%)
 

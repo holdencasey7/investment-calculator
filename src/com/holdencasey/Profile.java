@@ -1,10 +1,13 @@
 package com.holdencasey;
 
+/**
+ * Combines ReturnRate and Contribution, along with a starting value, into a story of money.
+ */
 class Profile {
-    private float startingValue;
-    private Contribution contributionSystem;
-    private ReturnRate returnRate;
-    private float endingValue;
+    private float startingValue; //The starting amount in dollars
+    private Contribution contributionSystem; //The Contribution system object
+    private ReturnRate returnRate; //The ReturnRate system object
+    private float endingValue; //The ending value. Must be calculated.
 
     /**
      * Main constructor.
