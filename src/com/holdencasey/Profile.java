@@ -1,13 +1,13 @@
 package com.holdencasey;
 
 /**
- * Combines ReturnRate and Contribution, along with a starting value, into a story of money.
+ * Combines ReturnRate and Contribution, along with a starting value and a total time period.
  */
 class Profile {
-    private float startingValue; //The starting amount in dollars
-    private Contribution contributionSystem; //The Contribution system object
-    private ReturnRate returnRate; //The ReturnRate system object
-    private float endingValue; //The ending value. Must be calculated.
+    final float startingValue; //The starting amount in dollars
+    final Contribution contributionSystem; //The Contribution system object
+    final ReturnRate returnRate; //The ReturnRate system object
+    final int totalTimePeriod; //The total time period.
 
     /**
      * Main constructor.
@@ -15,13 +15,13 @@ class Profile {
      * @param startingValue the initial investment value.
      * @param contributionSystem the Contribution system to use.
      * @param returnRate the Return rate system to use.
+     * @param totalTimePeriod the total time period.
      */
-    Profile(float startingValue, Contribution contributionSystem, ReturnRate returnRate) {
+    Profile(float startingValue, Contribution contributionSystem, ReturnRate returnRate, int totalTimePeriod) {
         this.startingValue = startingValue;
         this.contributionSystem = contributionSystem;
         this.returnRate = returnRate;
-
-        this.endingValue = 0f; //Placeholder
+        this.totalTimePeriod = totalTimePeriod;
     }
 
     /**
@@ -29,10 +29,9 @@ class Profile {
      *
      * @param contributionSystem the Contribution system to use.
      * @param returnRate the Return rate system to use.
+     * @param totalTimePeriod the total time period.
      */
-    Profile(Contribution contributionSystem, ReturnRate returnRate) {
-        this(0f, contributionSystem, returnRate);
+    Profile(Contribution contributionSystem, ReturnRate returnRate, int totalTimePeriod) {
+        this(0f, contributionSystem, returnRate, totalTimePeriod);
     }
-
-
 }

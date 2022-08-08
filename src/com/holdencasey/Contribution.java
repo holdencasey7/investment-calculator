@@ -4,7 +4,7 @@ package com.holdencasey;
  * A special TimePeriod that includes a contribution amount for each subdivision of time.
  */
 class Contribution extends TimePeriod{
-    private float[] contributionAmounts; //an array of contribution amounts in dollars
+    final float[] contributionAmounts; //an array of contribution amounts in dollars
 
     /**
      * Main constructor.

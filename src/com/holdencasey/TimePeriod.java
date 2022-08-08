@@ -7,9 +7,9 @@ import java.util.Arrays;
  * Can hold an array of different lengths of time.
  */
 class TimePeriod {
-    protected int numPeriods; //the number of unique time periods
-    protected int[] periodLengths; //an array of period lengths, in years
-    protected int totalPeriod; //the total time period
+    final int numPeriods; //the number of unique time periods
+    final int[] periodLengths; //an array of period lengths, in years
+    final int totalPeriod; //the total time period
 
     /**
      * Main constructor.
