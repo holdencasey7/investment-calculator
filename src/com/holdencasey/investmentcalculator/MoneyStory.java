@@ -1,4 +1,4 @@
-package com.holdencasey;
+package com.holdencasey.investmentcalculator;
 
 /**
  * The final value and story of the money values.

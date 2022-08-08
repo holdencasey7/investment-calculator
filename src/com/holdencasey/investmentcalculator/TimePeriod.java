@@ -1,4 +1,4 @@
-package com.holdencasey;
+package com.holdencasey.investmentcalculator;
 
 import java.util.Arrays;
 

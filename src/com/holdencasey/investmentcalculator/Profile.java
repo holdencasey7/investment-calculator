@@ -1,4 +1,4 @@
-package com.holdencasey;
+package com.holdencasey.investmentcalculator;
 
 /**
  * Combines ReturnRate and Contribution, along with a starting value and a total time period.

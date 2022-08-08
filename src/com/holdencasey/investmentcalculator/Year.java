@@ -1,4 +1,4 @@
-package com.holdencasey;
+package com.holdencasey.investmentcalculator;
 
 /**
  * Represents a single year of changes to money value.

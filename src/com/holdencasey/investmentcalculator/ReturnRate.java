@@ -1,4 +1,4 @@
-package com.holdencasey;
+package com.holdencasey.investmentcalculator;
 
 /**
  * A special TimePeriod that includes a return rate for each subdivision of time.

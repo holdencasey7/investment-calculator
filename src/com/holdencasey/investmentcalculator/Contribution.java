@@ -1,4 +1,4 @@
-package com.holdencasey;
+package com.holdencasey.investmentcalculator;
 
 /**
  * A special TimePeriod that includes a contribution amount for each subdivision of time.
