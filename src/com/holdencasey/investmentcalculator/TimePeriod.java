@@ -44,6 +44,15 @@ class TimePeriod {
     }
 
     /**
+     * Only period lengths constructor. Calculates the rest.
+     *
+     * @param periodLengths an array of period lengths, in years.
+     */
+    TimePeriod(int[] periodLengths) {
+        this(periodLengths.length, periodLengths);
+    }
+
+    /**
      * Constructor given an existing TimePeriod object.
      *
      * @param timePeriod an existing TimePeriod object.
