@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * The final value and story of the money values.
  */
-public class MoneyStory {
+class MoneyStory {
     final Profile investmentProfile; //the investment profile
     Year[] years;
 
@@ -88,6 +88,38 @@ public class MoneyStory {
         }
 
         return yearArray;
+    }
+
+    BigDecimal calculateTotalContributions() {
+        //Return sum of total contributions
+        //THIS IS WHERE I WAS
+        return null;
+    }
+
+    /**
+     * Prints each year of the MoneyStory.
+     */
+    void printYears() {
+        for (int i = 0; i < this.years.length; i++) {
+            System.out.println("Year " + (i + 1) + ": " + years[i]);
+        }
+    }
+
+    /**
+     * Prints the starting value, ending value, and time period.
+     */
+    void printStartAndEnd() {
+        System.out.printf("After %d years, $%.2f became $%.2f.", this.investmentProfile.totalTimePeriod,
+                this.investmentProfile.startingValue, this.calculateEndValue());
+    }
+
+    /**
+     * Prints the starting value, ending value, time period, and total contributions made.
+     */
+    void printStartAndEndWithContributions() {
+        System.out.printf("After %d years, $%.2f became $%.2f with %.2f in total contributions",
+                this.investmentProfile.totalTimePeriod, this.investmentProfile.startingValue,
+                this.calculateEndValue(), this.calculateTotalContributions());
     }
 
     @Override

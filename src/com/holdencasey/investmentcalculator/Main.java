@@ -20,11 +20,13 @@ public class Main {
 
         MoneyStory testMoneyStory = new MoneyStory(testProfile);
 
-        System.out.println(testTimePeriod);
-        System.out.println(testReturnRate);
-        System.out.println(testContribution);
-        System.out.println(testProfile);
-        System.out.println(testMoneyStory);
+        testMoneyStory.printYears();
+        testMoneyStory.printStartAndEnd();
+//        System.out.println(testTimePeriod);
+//        System.out.println(testReturnRate);
+//        System.out.println(testContribution);
+//        System.out.println(testProfile);
+//        System.out.println(testMoneyStory);
 //        System.out.println(testMoneyStory.makeContributionArray());
 //        System.out.println(testMoneyStory.makeReturnArray());
 //

@@ -4,6 +4,7 @@
 ~~Test Year[] array builder after adding toString()~~  
 ~~Add toString() to all other classes~~  
 Create methods for visualizing MoneyStory  
+Add total amount contributed  
 Test full process without user input  
 Create system for user input  
 Add exceptions and handling  
