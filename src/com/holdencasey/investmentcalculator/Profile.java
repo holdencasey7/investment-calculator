@@ -2,6 +2,7 @@ package com.holdencasey.investmentcalculator;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Arrays;
 
 /**
  * Combines ReturnRate and Contribution, along with a starting value and a total time period.
@@ -59,5 +60,13 @@ class Profile {
      */
     Profile(Contribution contributionSystem, ReturnRate returnRate, int totalTimePeriod) {
         this(DEFAULT_STARTING_VALUE, contributionSystem, returnRate, totalTimePeriod);
+    }
+
+    @Override
+    public String toString() {
+        return "Starting Value: $" + this.startingValue + " | " +
+                "Total length: " + this.totalTimePeriod + " years | Unique Returns: " +
+                Arrays.toString(this.returnRate.ratesOfReturn) + " | Unique Contributions: " +
+                Arrays.toString(this.contributionSystem.contributionAmounts);
     }
 }

@@ -1,6 +1,7 @@
 package com.holdencasey.investmentcalculator;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 /**
  * A special TimePeriod that includes a contribution amount for each subdivision of time.
@@ -40,5 +41,11 @@ class Contribution extends TimePeriod{
      */
     Contribution(BigDecimal contributionAmount, int timePeriod) {
         this(new BigDecimal[]{contributionAmount}, new TimePeriod(timePeriod));
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " | Contributions: " +
+                Arrays.toString(this.contributionAmounts);
     }
 }

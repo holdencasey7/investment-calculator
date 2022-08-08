@@ -62,4 +62,11 @@ class TimePeriod {
         this.periodLengths = timePeriod.periodLengths;
         this.totalPeriod = timePeriod.totalPeriod;
     }
+
+    @Override
+    public String toString() {
+        return "Total length: " + this.totalPeriod +
+                " years | Periods: " + this.numPeriods +
+                " | Lengths: " + Arrays.toString(this.periodLengths);
+    }
 }

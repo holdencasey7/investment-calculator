@@ -1,6 +1,7 @@
 package com.holdencasey.investmentcalculator;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 /**
  * A special TimePeriod that includes a return rate for each subdivision of time.
@@ -40,5 +41,11 @@ class ReturnRate extends TimePeriod {
      */
     ReturnRate(BigDecimal rateOfReturn, int timePeriod) {
         this(new BigDecimal[]{rateOfReturn}, new TimePeriod(timePeriod));
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " | Returns: " +
+                Arrays.toString(this.ratesOfReturn);
     }
 }

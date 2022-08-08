@@ -89,4 +89,10 @@ public class MoneyStory {
 
         return yearArray;
     }
+
+    @Override
+    public String toString() {
+        return investmentProfile.toString() + " | Ending Value: $" +
+                this.calculateEndValue();
+    }
 }
