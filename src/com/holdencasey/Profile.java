@@ -1,7 +1,6 @@
 package com.holdencasey;
 
-public class Profile {
+class Profile {
     private float startingValue;
     private Contribution contributionSystem;
-    private ReturnRate returnRate;
-}
+    private ReturnRate returnRate;}
