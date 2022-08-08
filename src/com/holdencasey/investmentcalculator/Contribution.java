@@ -1,10 +1,12 @@
 package com.holdencasey.investmentcalculator;
 
+import java.math.BigDecimal;
+
 /**
  * A special TimePeriod that includes a contribution amount for each subdivision of time.
  */
 class Contribution extends TimePeriod{
-    final float[] contributionAmounts; //an array of contribution amounts in dollars
+    final BigDecimal[] contributionAmounts; //an array of contribution amounts in dollars
 
     /**
      * Main constructor.
@@ -14,7 +16,7 @@ class Contribution extends TimePeriod{
      * @param periodLengths an array of period lengths, in years.
      * @param totalPeriod the total time period.
      */
-    Contribution(float[] contributionAmounts, int numPeriods, int[] periodLengths, int totalPeriod) {
+    Contribution(BigDecimal[] contributionAmounts, int numPeriods, int[] periodLengths, int totalPeriod) {
         super(numPeriods, periodLengths, totalPeriod);
         this.contributionAmounts = contributionAmounts;
     }
@@ -25,7 +27,7 @@ class Contribution extends TimePeriod{
      * @param contributionAmounts an array of contribution amounts in dollars.
      * @param timePeriod the existing TimePeriod object
      */
-    Contribution(float[] contributionAmounts, TimePeriod timePeriod) {
+    Contribution(BigDecimal[] contributionAmounts, TimePeriod timePeriod) {
         super(timePeriod);
         this.contributionAmounts = contributionAmounts;
     }
@@ -36,7 +38,7 @@ class Contribution extends TimePeriod{
      * @param contributionAmount the single contribution amount.
      * @param timePeriod the single time period as an int.
      */
-    Contribution(float contributionAmount, int timePeriod) {
-        this(new float[]{contributionAmount}, new TimePeriod(timePeriod));
+    Contribution(BigDecimal contributionAmount, int timePeriod) {
+        this(new BigDecimal[]{contributionAmount}, new TimePeriod(timePeriod));
     }
 }

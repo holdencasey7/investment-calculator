@@ -1,10 +1,12 @@
 package com.holdencasey.investmentcalculator;
 
+import java.math.BigDecimal;
+
 /**
  * A special TimePeriod that includes a return rate for each subdivision of time.
  */
 class ReturnRate extends TimePeriod {
-    final float[] ratesOfReturn; //an array of rates of return in % format (ex: 11.1 being 11.1%)
+    final BigDecimal[] ratesOfReturn; //an array of rates of return in % format (ex: 11.1 being 11.1%)
 
     /**
      * Main constructor.
@@ -14,7 +16,7 @@ class ReturnRate extends TimePeriod {
      * @param periodLengths an array of period lengths, in years.
      * @param totalPeriod the total time period.
      */
-    ReturnRate(float[] ratesOfReturn, int numPeriods, int[] periodLengths, int totalPeriod) {
+    ReturnRate(BigDecimal[] ratesOfReturn, int numPeriods, int[] periodLengths, int totalPeriod) {
         super(numPeriods, periodLengths, totalPeriod);
         this.ratesOfReturn = ratesOfReturn;
     }
@@ -25,7 +27,7 @@ class ReturnRate extends TimePeriod {
      * @param ratesOfReturn an array of rates of return in % format (ex: 11.1 being 11.1%).
      * @param timePeriod the existing TimePeriod object
      */
-    ReturnRate(float[] ratesOfReturn, TimePeriod timePeriod) {
+    ReturnRate(BigDecimal[] ratesOfReturn, TimePeriod timePeriod) {
         super(timePeriod);
         this.ratesOfReturn = ratesOfReturn;
     }
@@ -36,7 +38,7 @@ class ReturnRate extends TimePeriod {
      * @param rateOfReturn the single rate of return.
      * @param timePeriod the single time period as an int.
      */
-    ReturnRate(float rateOfReturn, int timePeriod) {
-        this(new float[]{rateOfReturn}, new TimePeriod(timePeriod));
+    ReturnRate(BigDecimal rateOfReturn, int timePeriod) {
+        this(new BigDecimal[]{rateOfReturn}, new TimePeriod(timePeriod));
     }
 }

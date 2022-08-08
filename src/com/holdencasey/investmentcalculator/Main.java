@@ -1,14 +1,18 @@
 package com.holdencasey.investmentcalculator;
 
+import java.math.BigDecimal;
+
 public class Main {
     public static void main(String[] args) {
         int[] lengths = {4, 2, 1, 3};
         TimePeriod testTimePeriod = new TimePeriod(lengths);
 
-        float[] contributions = {10.5f, 3f, 9f, 11.3f};
+        BigDecimal[] contributions = {new BigDecimal(10.5), new BigDecimal(3),
+                new BigDecimal(9), new BigDecimal(11.3)};
         Contribution testContribution = new Contribution(contributions, testTimePeriod);
 
-        float[] returns = {8f, 6.5f, 14f, 6f};
+        BigDecimal[] returns = {new BigDecimal(8), new BigDecimal(6.5),
+                new BigDecimal(14), new BigDecimal(6)};
         ReturnRate testReturnRate = new ReturnRate(returns, testTimePeriod);
 
         Profile testProfile = new Profile(testContribution, testReturnRate);

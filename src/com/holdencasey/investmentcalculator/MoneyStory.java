@@ -1,5 +1,6 @@
 package com.holdencasey.investmentcalculator;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 /**
@@ -24,7 +25,7 @@ public class MoneyStory {
      *
      * @return the final investment value, in dollars.
      */
-    float calculateEndValue() {
+    BigDecimal calculateEndValue() {
         return years[years.length - 1].endValue;
     }
 
@@ -34,17 +35,17 @@ public class MoneyStory {
      * @param investmentProfile the Profile to use.
      * @return the final investment value, in dollars.
      */
-    static float calculateEndValue(Profile investmentProfile) {
+    static BigDecimal calculateEndValue(Profile investmentProfile) {
         return (new MoneyStory(investmentProfile)).calculateEndValue();
     }
 
     /**
      * Creates a yearly contribution ArrayList.
      *
-     * @return a float ArrayList with each element being a contribution for one year.
+     * @return a BigDecimal ArrayList with each element being a contribution for one year.
      */
-    ArrayList<Float> makeContributionArray() {
-        ArrayList<Float> totalContributions = new ArrayList<>(investmentProfile.totalTimePeriod);
+    ArrayList<BigDecimal> makeContributionArray() {
+        ArrayList<BigDecimal> totalContributions = new ArrayList<>(investmentProfile.totalTimePeriod);
         for (int i = 0; i < investmentProfile.contributionSystem.numPeriods; i++) {
             for (int j = 0; j < investmentProfile.contributionSystem.periodLengths[i]; j++) {
                 totalContributions.add(investmentProfile.contributionSystem.contributionAmounts[i]);
@@ -56,10 +57,10 @@ public class MoneyStory {
     /**
      * Creates a yearly return rate ArrayList.
      *
-     * @return a float ArrayList with each element being a return rate for one year.
+     * @return a BigDecimal ArrayList with each element being a return rate for one year.
      */
-    ArrayList<Float> makeReturnArray() {
-        ArrayList<Float> totalReturns = new ArrayList<>(investmentProfile.totalTimePeriod);
+    ArrayList<BigDecimal> makeReturnArray() {
+        ArrayList<BigDecimal> totalReturns = new ArrayList<>(investmentProfile.totalTimePeriod);
         for (int i = 0; i < investmentProfile.returnRate.numPeriods; i++) {
             for (int j = 0; j < investmentProfile.returnRate.periodLengths[i]; j++) {
                 totalReturns.add(investmentProfile.returnRate.ratesOfReturn[i]);
@@ -75,8 +76,8 @@ public class MoneyStory {
      */
     Year[] makeYearArray() {
         Year[] yearArray = new Year[investmentProfile.totalTimePeriod];
-        ArrayList<Float> contributions = this.makeContributionArray();
-        ArrayList<Float> returns = this.makeReturnArray();
+        ArrayList<BigDecimal> contributions = this.makeContributionArray();
+        ArrayList<BigDecimal> returns = this.makeReturnArray();
 
         /* First year uses original start value */
         yearArray[0] = new Year(investmentProfile.startingValue, contributions.get(0), returns.get(0));

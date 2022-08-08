@@ -1,12 +1,15 @@
 package com.holdencasey.investmentcalculator;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Combines ReturnRate and Contribution, along with a starting value and a total time period.
  */
 class Profile {
-    private final static float DEFAULT_STARTING_VALUE = 0f; //Default starting value if none provided
+    private final static BigDecimal DEFAULT_STARTING_VALUE = new BigDecimal(0); //Default starting value if none provided
 
-    final float startingValue; //The starting amount in dollars
+    final BigDecimal startingValue; //The starting amount in dollars
     final Contribution contributionSystem; //The Contribution system object
     final ReturnRate returnRate; //The ReturnRate system object
     final int totalTimePeriod; //The total time period.
@@ -19,8 +22,8 @@ class Profile {
      * @param returnRate the Return rate system to use.
      * @param totalTimePeriod the total time period.
      */
-    Profile(float startingValue, Contribution contributionSystem, ReturnRate returnRate, int totalTimePeriod) {
-        this.startingValue = startingValue;
+    Profile(BigDecimal startingValue, Contribution contributionSystem, ReturnRate returnRate, int totalTimePeriod) {
+        this.startingValue = startingValue.setScale(2, RoundingMode.HALF_UP);;
         this.contributionSystem = contributionSystem;
         this.returnRate = returnRate;
         this.totalTimePeriod = totalTimePeriod;
@@ -33,7 +36,7 @@ class Profile {
      * @param contributionSystem the Contribution system to use.
      * @param returnRate the Return rate system to use.
      */
-    Profile(float startingValue, Contribution contributionSystem, ReturnRate returnRate) {
+    Profile(BigDecimal startingValue, Contribution contributionSystem, ReturnRate returnRate) {
         this(startingValue, contributionSystem, returnRate, returnRate.totalPeriod);
     }
 
@@ -48,7 +51,7 @@ class Profile {
     }
 
     /**
-     * No starting value constructor. Defaults to 0f starting.
+     * No starting value constructor. Defaults to 0 starting.
      *
      * @param contributionSystem the Contribution system to use.
      * @param returnRate the Return rate system to use.
