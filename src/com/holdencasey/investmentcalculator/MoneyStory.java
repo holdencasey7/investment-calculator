@@ -16,7 +16,7 @@ public class MoneyStory {
      */
     MoneyStory(Profile investmentProfile) {
         this.investmentProfile = investmentProfile;
-        this.years = new Year[investmentProfile.totalTimePeriod];
+        this.years = this.makeYearArray();
     }
 
     /**
@@ -66,5 +66,26 @@ public class MoneyStory {
             }
         }
         return totalReturns;
+    }
+
+    /**
+     * Creates an array of Years documenting the change in money value.
+     *
+     * @return the Year array for this MoneyStory.
+     */
+    Year[] makeYearArray() {
+        Year[] yearArray = new Year[investmentProfile.totalTimePeriod];
+        ArrayList<Float> contributions = this.makeContributionArray();
+        ArrayList<Float> returns = this.makeReturnArray();
+
+        /* First year uses original start value */
+        yearArray[0] = new Year(investmentProfile.startingValue, contributions.get(0), returns.get(0));
+
+        /* Each subsequent year passed previous year for new value */
+        for (int i = 1; i < investmentProfile.totalTimePeriod; i++) {
+            yearArray[i] = new Year(yearArray[i - 1], contributions.get(i), returns.get(i));
+        }
+
+        return yearArray;
     }
 }
