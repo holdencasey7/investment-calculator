@@ -16,6 +16,7 @@ public class Main {
         MoneyStory testMoneyStory = new MoneyStory(testProfile);
 
         System.out.println(testMoneyStory.makeContributionArray());
+        System.out.println(testMoneyStory.makeReturnArray());
     }
 
 }

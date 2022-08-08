@@ -52,4 +52,19 @@ public class MoneyStory {
         }
         return totalContributions;
     }
+
+    /**
+     * Creates a yearly return rate ArrayList.
+     *
+     * @return a float ArrayList with each element being a return rate for one year.
+     */
+    ArrayList<Float> makeReturnArray() {
+        ArrayList<Float> totalReturns = new ArrayList<>(investmentProfile.totalTimePeriod);
+        for (int i = 0; i < investmentProfile.returnRate.numPeriods; i++) {
+            for (int j = 0; j < investmentProfile.returnRate.periodLengths[i]; j++) {
+                totalReturns.add(investmentProfile.returnRate.ratesOfReturn[i]);
+            }
+        }
+        return totalReturns;
+    }
 }
