@@ -1,5 +1,7 @@
 package com.holdencasey.investmentcalculator;
 
+import java.util.ArrayList;
+
 /**
  * The final value and story of the money values.
  */
@@ -23,7 +25,7 @@ public class MoneyStory {
      * @return the final investment value, in dollars.
      */
     float calculateEndValue() {
-        return 0f; //Placeholder
+        return years[years.length - 1].endValue;
     }
 
     /**
@@ -34,5 +36,20 @@ public class MoneyStory {
      */
     static float calculateEndValue(Profile investmentProfile) {
         return (new MoneyStory(investmentProfile)).calculateEndValue();
+    }
+
+    /**
+     * Creates a yearly contribution ArrayList.
+     *
+     * @return a float ArrayList with each element being a contribution for one year.
+     */
+    ArrayList<Float> makeContributionArray() {
+        ArrayList<Float> totalContributions = new ArrayList<>(investmentProfile.totalTimePeriod);
+        for (int i = 0; i < investmentProfile.contributionSystem.numPeriods; i++) {
+            for (int j = 0; j < investmentProfile.contributionSystem.periodLengths[i]; j++) {
+                totalContributions.add(investmentProfile.contributionSystem.contributionAmounts[i]);
+            }
+        }
+        return totalContributions;
     }
 }
