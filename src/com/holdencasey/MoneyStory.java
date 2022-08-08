@@ -5,6 +5,7 @@ package com.holdencasey;
  */
 public class MoneyStory {
     final Profile investmentProfile; //the investment profile
+    Year[] years;
 
     /**
      * Main constructor.
@@ -13,6 +14,7 @@ public class MoneyStory {
      */
     MoneyStory(Profile investmentProfile) {
         this.investmentProfile = investmentProfile;
+        this.years = new Year[investmentProfile.totalTimePeriod];
     }
 
     /**
