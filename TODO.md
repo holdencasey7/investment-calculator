@@ -11,3 +11,5 @@ Create methods for visualizing MoneyStory
 ~~Add commas~~  
 Add exceptions and handling  
 Test full process with user input  
+Add predefined risk profiles  
+Long term: add GUI  
