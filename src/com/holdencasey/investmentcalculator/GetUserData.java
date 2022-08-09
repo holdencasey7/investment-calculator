@@ -38,7 +38,7 @@ class GetUserData {
      * @return a BigDecimal containing the starting value.
      */
     static BigDecimal getStartingValue(Scanner scanner) {
-        System.out.println("Enter starting value: ");
+        System.out.print("\nEnter starting value: $");
         return scanner.nextBigDecimal();
     }
 
@@ -49,7 +49,7 @@ class GetUserData {
      * @return an int containing the total time period.
      */
     static int getTimePeriod(Scanner scanner) {
-        System.out.println("Enter the total investment period: ");
+        System.out.print("\nEnter the total investment period (years): ");
         return scanner.nextInt();
     }
 
@@ -61,10 +61,10 @@ class GetUserData {
      * @return a Contribution object using user data.
      */
     static Contribution createContribution(Scanner scanner, int timeperiod) {
-        System.out.println("How many unique contribution periods?\n" +
+        System.out.print("\nHow many unique contribution periods?\n" +
                 "A unique contribution period is a period with a standard yearly contribution amount.\n" +
                 "Include periods with 0 contributions or negative contributions (withdraw).\n" +
-                "Enter unique contribution periods: ");
+                "Enter number of unique contribution periods: ");
         int numPeriods = scanner.nextInt();
 
         //Only one period
@@ -78,7 +78,7 @@ class GetUserData {
         //Get contribution amounts
         BigDecimal[] contributionAmounts = new BigDecimal[numPeriods];
         for (int i = 0; i < numPeriods; i++) {
-            System.out.print("\nEnter the contribution amount for Period " + (i + 1) + ": $");
+            System.out.print("\nEnter the yearly contribution amount for Period " + (i + 1) + ": $");
             BigDecimal currContribution = scanner.nextBigDecimal();
             contributionAmounts[i] = currContribution.setScale(2, RoundingMode.HALF_UP);
         }
@@ -88,7 +88,7 @@ class GetUserData {
         int[] periodLengths = new int[numPeriods];
         int totalPeriods = 0;
         for (int i = 0; i < numPeriods; i++) {
-            System.out.print("\nEnter the length for Period " + (i + 1) +
+            System.out.print("\nEnter the length, in years, for Period " + (i + 1) +
                     " with contribution $" + contributionAmounts[i] + ": ");
             periodLengths[i] = scanner.nextInt();
             totalPeriods += periodLengths[i];
@@ -114,7 +114,7 @@ class GetUserData {
         System.out.print("\nHow many unique return periods?\n" +
                 "A unique return period is a period with a standard yearly rate of return.\n" +
                 "Include periods with 0% return.\n" +
-                "Enter unique return periods: ");
+                "Enter number of unique return periods: ");
         int numPeriods = scanner.nextInt();
 
         //Only one period
@@ -138,7 +138,7 @@ class GetUserData {
         int[] periodLengths = new int[numPeriods];
         int totalPeriods = 0;
         for (int i = 0; i < numPeriods; i++) {
-            System.out.print("\nEnter the length for Period " + (i + 1) +
+            System.out.print("\nEnter the length, in years, for Period " + (i + 1) +
                     " with return rate " + returnRates[i] + "%: ");
             periodLengths[i] = scanner.nextInt();
             totalPeriods += periodLengths[i];
