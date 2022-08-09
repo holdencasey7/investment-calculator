@@ -20,8 +20,10 @@ public class Main {
 
         MoneyStory testMoneyStory = new MoneyStory(testProfile);
 
-        testMoneyStory.printYears();
-        testMoneyStory.printStartAndEnd();
+//        testMoneyStory.printYears();
+//        testMoneyStory.printStartAndEnd();
+//        testMoneyStory.printStartAndEndWithContributions();
+//        testMoneyStory.printContributions();
 //        System.out.println(testTimePeriod);
 //        System.out.println(testReturnRate);
 //        System.out.println(testContribution);

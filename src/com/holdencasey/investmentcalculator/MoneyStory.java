@@ -90,10 +90,17 @@ class MoneyStory {
         return yearArray;
     }
 
+    /**
+     * Sums each contribution to a total.
+     *
+     * @return BigDecimal total of contributions made.
+     */
     BigDecimal calculateTotalContributions() {
-        //Return sum of total contributions
-        //THIS IS WHERE I WAS
-        return null;
+        BigDecimal sum = (this.makeContributionArray()
+                .stream()
+                .reduce(BigDecimal.ZERO,
+                        BigDecimal::add));
+        return sum;
     }
 
     /**
@@ -109,7 +116,7 @@ class MoneyStory {
      * Prints the starting value, ending value, and time period.
      */
     void printStartAndEnd() {
-        System.out.printf("After %d years, $%.2f became $%.2f.", this.investmentProfile.totalTimePeriod,
+        System.out.printf("After %d years, $%.2f became $%.2f.\n", this.investmentProfile.totalTimePeriod,
                 this.investmentProfile.startingValue, this.calculateEndValue());
     }
 
@@ -117,9 +124,17 @@ class MoneyStory {
      * Prints the starting value, ending value, time period, and total contributions made.
      */
     void printStartAndEndWithContributions() {
-        System.out.printf("After %d years, $%.2f became $%.2f with %.2f in total contributions",
+        System.out.printf("After %d years, $%.2f became $%.2f with $%.2f in total contributions.\n",
                 this.investmentProfile.totalTimePeriod, this.investmentProfile.startingValue,
                 this.calculateEndValue(), this.calculateTotalContributions());
+    }
+
+    /**
+     * Prints the total contributions made and the time period.
+     */
+    void printContributions() {
+        System.out.printf("$%.2f in contributions were made over %d years.\n",
+                this.calculateTotalContributions(), this.investmentProfile.totalTimePeriod);
     }
 
     @Override
