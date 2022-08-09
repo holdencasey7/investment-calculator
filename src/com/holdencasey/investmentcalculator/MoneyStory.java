@@ -116,7 +116,8 @@ class MoneyStory {
      * Prints the starting value, ending value, and time period.
      */
     void printStartAndEnd() {
-        System.out.printf("After %d years, $%.2f became $%.2f.\n", this.investmentProfile.totalTimePeriod,
+        System.out.printf("After %d year%s, $%,.2f became $%,.2f.\n", this .investmentProfile.totalTimePeriod,
+                this.investmentProfile.totalTimePeriod > 1 ? "s" : "",
                 this.investmentProfile.startingValue, this.calculateEndValue());
     }
 
@@ -124,16 +125,18 @@ class MoneyStory {
      * Prints the starting value, ending value, time period, and total contributions made.
      */
     void printStartAndEndWithContributions() {
-        System.out.printf("After %d years, $%.2f became $%.2f with $%.2f in total contributions.\n",
-                this.investmentProfile.totalTimePeriod, this.investmentProfile.startingValue,
-                this.calculateEndValue(), this.calculateTotalContributions());
+        System.out.printf("After %d year%s, $%,.2f became $%,.2f with $%,.2f in total contributions.\n",
+                this.investmentProfile.totalTimePeriod,
+                this.investmentProfile.totalTimePeriod > 1 ? "s" : "",
+                this.investmentProfile.startingValue, this.calculateEndValue(),
+                this.calculateTotalContributions());
     }
 
     /**
      * Prints the total contributions made and the time period.
      */
     void printContributions() {
-        System.out.printf("$%.2f in contributions were made over %d years.\n",
+        System.out.printf("$%,.2f in contributions were made over %d years.\n",
                 this.calculateTotalContributions(), this.investmentProfile.totalTimePeriod);
     }
 

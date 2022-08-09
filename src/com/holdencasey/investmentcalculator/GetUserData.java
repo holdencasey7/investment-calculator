@@ -61,6 +61,14 @@ class GetUserData {
      * @return a Contribution object using user data.
      */
     static Contribution createContribution(Scanner scanner, int timeperiod) {
+        //Total investment length is only 1 year
+        if (timeperiod == 1) {
+            System.out.print("\nEnter any additional contribution amount: $");
+            BigDecimal contributionAmount = scanner.nextBigDecimal();
+            return new Contribution(contributionAmount, timeperiod);
+        }
+
+        //Normal case
         System.out.print("\nHow many unique contribution periods?\n" +
                 "A unique contribution period is a period with a standard yearly contribution amount.\n" +
                 "Include periods with 0 contributions or negative contributions (withdraw).\n" +
@@ -69,7 +77,7 @@ class GetUserData {
 
         //Only one period
         if (numPeriods == 1) {
-            System.out.print("\nEnter the yearly contribution amount: ");
+            System.out.print("\nEnter the yearly contribution amount: $");
             BigDecimal contributionAmount = scanner.nextBigDecimal();
             return new Contribution(contributionAmount, timeperiod);
         }
@@ -111,6 +119,14 @@ class GetUserData {
      * @return a ReturnRate object using user data.
      */
     static ReturnRate createReturnRate(Scanner scanner, int timeperiod) {
+        //Total investment length is only 1 year
+        if (timeperiod == 1) {
+            System.out.print("\nEnter the annual rate of return: %");
+            BigDecimal rateOfReturn = scanner.nextBigDecimal();
+            return new ReturnRate(rateOfReturn, timeperiod);
+        }
+
+        //Normal case
         System.out.print("\nHow many unique return periods?\n" +
                 "A unique return period is a period with a standard yearly rate of return.\n" +
                 "Include periods with 0% return.\n" +
@@ -119,7 +135,7 @@ class GetUserData {
 
         //Only one period
         if (numPeriods == 1) {
-            System.out.print("\nEnter the yearly rate of return: ");
+            System.out.print("\nEnter the yearly rate of return: %");
             BigDecimal rateOfReturn = scanner.nextBigDecimal();
             return new ReturnRate(rateOfReturn, timeperiod);
         }
