@@ -114,7 +114,7 @@ class GetUserData {
         System.out.print("\nHow many unique return periods?\n" +
                 "A unique return period is a period with a standard yearly rate of return.\n" +
                 "Include periods with 0% return.\n" +
-                "Enter unique contribution periods: ");
+                "Enter unique return periods: ");
         int numPeriods = scanner.nextInt();
 
         //Only one period

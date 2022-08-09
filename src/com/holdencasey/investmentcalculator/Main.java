@@ -1,11 +1,14 @@
 package com.holdencasey.investmentcalculator;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        /* New more realistic test */
+        Scanner terminalInput = new Scanner(System.in);
+        MoneyStory newMoneyStory = GetUserData.createMoneyStory(terminalInput);
+        newMoneyStory.printStartAndEndWithContributions();
+
+        /* New more realistic test
         int[] contLengths = {5, 40, 20};
         BigDecimal[] contributions = {
                 new BigDecimal(500),
@@ -23,7 +26,7 @@ public class Main {
 
         MoneyStory testMoneyStory = new MoneyStory(new Profile(testContribution, testReturnRate));
 
-        testMoneyStory.printStartAndEndWithContributions();
+        testMoneyStory.printStartAndEndWithContributions(); */
 
         /* Old Test
         int[] lengths = {4, 2, 1, 3};
