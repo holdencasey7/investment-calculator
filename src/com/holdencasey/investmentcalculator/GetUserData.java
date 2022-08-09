@@ -75,21 +75,12 @@ class GetUserData {
         }
 
         /* >1 period */
-        //Get contribution amounts
-        BigDecimal[] contributionAmounts = new BigDecimal[numPeriods];
-        for (int i = 0; i < numPeriods; i++) {
-            System.out.print("\nEnter the yearly contribution amount for Period " + (i + 1) + ": $");
-            BigDecimal currContribution = scanner.nextBigDecimal();
-            contributionAmounts[i] = currContribution.setScale(2, RoundingMode.HALF_UP);
-        }
-
         //Get period lengths
-        System.out.println("\nReminder: you chose a " + timeperiod + " year total time length.");
+        System.out.print("\nReminder: you chose a " + timeperiod + " year total time length.");
         int[] periodLengths = new int[numPeriods];
         int totalPeriods = 0;
         for (int i = 0; i < numPeriods; i++) {
-            System.out.print("\nEnter the length, in years, for Period " + (i + 1) +
-                    " with contribution $" + contributionAmounts[i] + ": ");
+            System.out.print("\nEnter the length, in years, for Period " + (i + 1) + ": ");
             periodLengths[i] = scanner.nextInt();
             totalPeriods += periodLengths[i];
             //Check that period lengths are not longer than total investment length
@@ -98,6 +89,15 @@ class GetUserData {
                 totalPeriods -= periodLengths[i--];
                 //This ...should... work
             }
+        }
+
+        //Get contribution amounts
+        BigDecimal[] contributionAmounts = new BigDecimal[numPeriods];
+        for (int i = 0; i < numPeriods; i++) {
+            System.out.print("\nEnter the yearly contribution amount for Period " + (i + 1)  +
+                    " with length " + periodLengths[i] + " years: $");
+            BigDecimal currContribution = scanner.nextBigDecimal();
+            contributionAmounts[i] = currContribution.setScale(2, RoundingMode.HALF_UP);
         }
 
         return new Contribution(contributionAmounts, periodLengths);
@@ -149,31 +149,6 @@ class GetUserData {
             BigDecimal currContribution = scanner.nextBigDecimal();
             returnRates[i] = currContribution.setScale(2, RoundingMode.HALF_UP);
         }
-        /*
-        //Get return rates
-        BigDecimal[] returnRates = new BigDecimal[numPeriods];
-        for (int i = 0; i < numPeriods; i++) {
-            System.out.print("\nEnter the rate of return for Period " + (i + 1) + ": %");
-            BigDecimal currContribution = scanner.nextBigDecimal();
-            returnRates[i] = currContribution.setScale(2, RoundingMode.HALF_UP);
-        }
-
-        //Get period lengths
-        System.out.println("\nReminder: you chose a " + timeperiod + " year total time length.");
-        int[] periodLengths = new int[numPeriods];
-        int totalPeriods = 0;
-        for (int i = 0; i < numPeriods; i++) {
-            System.out.print("\nEnter the length, in years, for Period " + (i + 1) +
-                    " with return rate " + returnRates[i] + "%: ");
-            periodLengths[i] = scanner.nextInt();
-            totalPeriods += periodLengths[i];
-            //Check that period lengths are not longer than total investment length
-            if (totalPeriods > timeperiod) {
-                System.out.println("\nReturn periods cannot be longer than total investment length.");
-                totalPeriods -= periodLengths[i--];
-                //This ...should... work
-            }
-        } */
 
         return new ReturnRate(returnRates, periodLengths);
     }
