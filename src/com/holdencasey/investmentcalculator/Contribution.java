@@ -43,6 +43,16 @@ class Contribution extends TimePeriod{
         this(new BigDecimal[]{contributionAmount}, new TimePeriod(timePeriod));
     }
 
+    /**
+     * Only contribution array and period lengths array constructor. Calculates the rest.
+     *
+     * @param contributionAmounts an array of contribution amounts in dollars.
+     * @param periodLengths an array of period lengths, in years.
+     */
+    Contribution(BigDecimal[] contributionAmounts, int[] periodLengths) {
+        this(contributionAmounts, periodLengths.length, periodLengths, Arrays.stream(periodLengths).sum());
+    }
+
     @Override
     public String toString() {
         return super.toString() + " | Contributions: " +

@@ -43,6 +43,16 @@ class ReturnRate extends TimePeriod {
         this(new BigDecimal[]{rateOfReturn}, new TimePeriod(timePeriod));
     }
 
+    /**
+     * Only return rates array and period lengths array constructor. Calculates the rest.
+     *
+     * @param ratesOfReturn an array of rates of return in % format (ex: 11.1 being 11.1%).
+     * @param periodLengths an array of period lengths, in years.
+     */
+    ReturnRate(BigDecimal[] ratesOfReturn, int[] periodLengths) {
+        this(ratesOfReturn, periodLengths.length, periodLengths, Arrays.stream(periodLengths).sum());
+    }
+
     @Override
     public String toString() {
         return super.toString() + " | Returns: " +
