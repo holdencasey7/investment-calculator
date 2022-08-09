@@ -10,6 +10,7 @@ Create methods for visualizing MoneyStory
 ~~Swap dialogue to ask for length first before other~~  
 ~~Add commas~~  
 Add exceptions and handling  
+Review access modifiers  
 Test full process with user input  
 Add predefined risk profiles  
 Long term: add GUI  
