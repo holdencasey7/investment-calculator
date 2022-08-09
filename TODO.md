@@ -8,6 +8,6 @@ Create methods for visualizing MoneyStory
 ~~Test full process without user input~~  
 ~~Create system for user input~~  
 ~~Swap dialogue to ask for length first before other~~  
-Add commas  
+~~Add commas~~  
 Add exceptions and handling  
 Test full process with user input  

@@ -25,6 +25,7 @@ class Year {
         this.startValue = startValue.setScale(2, RoundingMode.HALF_UP);
         this.contribution = contribution.setScale(2, RoundingMode.HALF_UP);
         this.returnRate = returnRate.setScale(2, RoundingMode.HALF_UP);
+        //This is where the magic happens
         this.endValue = startValue
                 .add(contribution)
                 .multiply((new BigDecimal(1)
