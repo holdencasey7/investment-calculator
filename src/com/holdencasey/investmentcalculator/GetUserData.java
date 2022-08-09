@@ -1,6 +1,7 @@
 package com.holdencasey.investmentcalculator;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Scanner;
 
 class GetUserData {
@@ -28,11 +29,24 @@ class GetUserData {
         return scanner.nextBigDecimal();
     }
 
+    /**
+     * Obtains a total investment time period from the user.
+     *
+     * @param scanner the Scanner object used to get data.
+     * @return an int containing the total time period.
+     */
     static int getTimePeriod(Scanner scanner) {
         System.out.println("Enter the total investment period: ");
         return scanner.nextInt();
     }
 
+    /**
+     * Obtains contribution system data from the user.
+     *
+     * @param scanner the Scanner object used to get data.
+     * @param timeperiod the total time period. Used to check against contribution time periods.
+     * @return a Contribution object using user data.
+     */
     static Contribution createContribution(Scanner scanner, int timeperiod) {
         System.out.println("How many unique contribution periods?\n" +
                 "A unique contribution period is a period with a standard yearly contribution amount.\n" +
@@ -47,20 +61,32 @@ class GetUserData {
             return new Contribution(contributionAmount, timeperiod);
         }
 
-        //>1 time period
-        System.out.println("Reminder: you chose a " + timeperiod + " year total time length.");
+        /* >1 period */
+        //Get contribution amounts
+        BigDecimal[] contributionAmounts = new BigDecimal[numPeriods];
+        for (int i = 0; i < numPeriods; i++) {
+            System.out.print("\nEnter the contribution amount for Period " + (i + 1) + ": $");
+            BigDecimal currContribution = scanner.nextBigDecimal();
+            contributionAmounts[i] = currContribution.setScale(2, RoundingMode.HALF_UP);
+        }
+
+        //Get period lengths
+        System.out.println("\nReminder: you chose a " + timeperiod + " year total time length.");
         int[] periodLengths = new int[numPeriods];
         int totalPeriods = 0;
         for (int i = 0; i < numPeriods; i++) {
-            System.out.println("Enter the length for Period " + (i + 1) + ": ");
+            System.out.print("\nEnter the length for Period " + (i + 1) +
+                    " with contribution $" + contributionAmounts[i] + ": ");
             periodLengths[i] = scanner.nextInt();
             totalPeriods += periodLengths[i];
             //Check that period lengths are not longer than total investment length
             if (totalPeriods > timeperiod) {
-                System.out.println("Contribution periods cannot be longer than total investment length.");
+                System.out.println("\nContribution periods cannot be longer than total investment length.");
                 totalPeriods -= periodLengths[i--];
                 //This ...should... work
             }
         }
+
+        return new Contribution(contributionAmounts, periodLengths);
     }
 }
